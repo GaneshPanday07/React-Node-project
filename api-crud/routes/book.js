@@ -6,6 +6,11 @@ route.use(bodyparser.json());
 route.use(bodyparser.urlencoded({
     extended: false
 }));
+
+route.get("books", (req, res) => {
+  BookController.getBooks(req, res);
+});
+
 route.post('/add/book', (req, res)=> {
     BookController.addBook(req, res);
 })
