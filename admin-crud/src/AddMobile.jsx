@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 function AddMobile() {
+    let navigate = useNavigate()
     let [modelName, setModelName] = useState('')
     let [BrandName, setBrandName] = useState('')
     let [price, setPrice] = useState(0)
@@ -23,6 +25,7 @@ function AddMobile() {
             data: data
         }).then((res)=> {
             alert(res.data.message)
+            navigate('/mobileList')
             
         })
         .catch((err)=> {
