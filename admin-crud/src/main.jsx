@@ -1,9 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import AddBook from './AddBook'
-import AddMobile from './AddMobile'
+import App from './App'
+
 
 createRoot(document.getElementById('root')).render(
-  //<AddBook></AddBook>
-  <AddMobile></AddMobile>
+  <App></App>
+  // <AddBook></AddBook>
+  //<AddMobile></AddMobile>
 )

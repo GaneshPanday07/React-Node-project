@@ -15,14 +15,25 @@ const addBook = async(req, res) => {
 const getBooks = async (req, res) => {
   try {
     let books = await Book.find({});
-    console.log(books);
     res.status(200).send({ data: books });
   } catch (err) {
     console.log(err);
     res.status(400).send({ message: err });
   }
 }
-module.exports = {
-    addBook,
-    getBooks
+
+const deleteBook = async(req, res) => {
+  try{
+    id = req.params.id
+    await Book.deleteOne({_id: id});
+    res.status(200).send({success: true})
+  } catch(err) {
+    console.log(err)
+    res.status(400).send({success: false})
+  }
 }
+module.exports = {
+  addBook,
+  getBooks,
+  deleteBook,
+};

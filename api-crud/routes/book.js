@@ -7,12 +7,16 @@ route.use(bodyparser.urlencoded({
     extended: false
 }));
 
-route.get("books", (req, res) => {
+route.get('/books', (req, res) => {
   BookController.getBooks(req, res);
 });
 
 route.post('/add/book', (req, res)=> {
     BookController.addBook(req, res);
+})
+
+route.delete('/delete/book/:id', (req, res)=> {
+    BookController.deleteBook(req, res)
 })
 
 module.exports = route

@@ -23,6 +23,7 @@ function AddMobile() {
             data: data
         }).then((res)=> {
             alert(res.data.message)
+            
         })
         .catch((err)=> {
             alert(err)
