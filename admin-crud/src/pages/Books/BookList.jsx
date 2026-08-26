@@ -7,7 +7,7 @@ function BookList() {
     let [isDelete, setIsDelete] = useState(false)
     let navigate = useNavigate()
     function gotoaddbook(){
-        alert('ok')
+        navigate('/add/book')
     }
     function handleDelete(id){
         axios({
@@ -19,6 +19,9 @@ function BookList() {
         }).catch((err)=> {
             alert(err)
         })
+    }
+    function handleUpdate(id) {
+       navigate('/edit/book/' + id)
     }
     useEffect(() => {
         axios ({
@@ -35,10 +38,11 @@ function BookList() {
         <Container>
             <Row>
                 <Col> 
-                    <Button className="mt-5" variant="success" style={{float:'right' }} >Add Book +</Button>
+                    <Button className="mt-5" variant="success" style={{float:'right' }} onClick={gotoaddbook} >Add Book +</Button>
                     <h3 class ="text-center text-danger mt-5">Book List</h3>
                     <Table bordered>
                         <thead>
+                            <tr>
                             <th>Book Title</th>
                             <th>Author Name</th>
                             <th>Price</th>
@@ -46,6 +50,7 @@ function BookList() {
                             <th>Number of pages</th>
                             <th>Publication</th>
                             <th>Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             {
@@ -57,7 +62,11 @@ function BookList() {
                                         <td>{book.isbnNo}</td>
                                         <td>{book.nop}</td>
                                         <td>{book.publication}</td>
-                                        <td><Button variant="danger" Size="sm" onClick={() => handleDelete(book._id)}>Delete</Button></td>
+                                        <td>
+                                            <Button variant="danger" Size="sm" onClick={() => handleDelete(book._id)}>Delete</Button>
+                                            <Button variant="warning" Size="sm" className="ms-1" onClick={() => handleUpdate(book._id)}>Edit</Button>
+                                        </td>
+                                        
                                     </tr>
                                 )
                             }

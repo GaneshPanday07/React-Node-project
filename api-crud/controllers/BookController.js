@@ -2,7 +2,6 @@ const Book = require('../models/Book')
 
 const addBook = async(req, res) => {
     try{
-        console.log(req.body)
         let book = new Book(req.body)
         await book.save()
         console.log("Data Save Successfully.....")
@@ -32,8 +31,22 @@ const deleteBook = async(req, res) => {
     res.status(400).send({success: false})
   }
 }
+
+const getBookForEdit = async(req, res) => {
+  try{
+    let id = req.params.id;
+    console.log(id);
+    let book = await Book.findOne({_id: id});
+    console.log(book)
+    res.status(200).send({data: book})
+  } catch(err) {
+    console.log(err)
+    res.status(400).send({data: err})
+  }
+}
 module.exports = {
   addBook,
   getBooks,
   deleteBook,
+  getBookForEdit
 };
