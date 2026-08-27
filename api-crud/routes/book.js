@@ -23,4 +23,8 @@ route.get('/book/for/edit/:id', (req, res) => {
     BookController.getBookForEdit(req, res);
 })
 
+route.put('/edit/book/:id', (req, res)=> {
+    BookController.editBook(req, res)
+})
+
 module.exports = route

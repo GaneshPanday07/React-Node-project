@@ -30,7 +30,29 @@ function BookPageForEdit() {
             alert('err ')
         })
     },[])
-    return(
+    function manageUpdate(e) {
+        let name = e.target.name
+        let value = e.target.value
+        setBook((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
+    function editBook() {
+        axios({
+            url: 'http://localhost:3000/edit/book/' + id,
+            method: 'put',
+            data: book
+        }).then((res)=> {
+            alert('data has been update sucessfully...')
+        }).catch((err)=> {
+            alert(err)
+        })
+    }
+    return (
         <Container className='align-items-center justify-content-center min-vh-100'>
             <Row className='w-100 justify-content-center'>
                 <Col xs={12} md={6} lg={6} className='border p-4 rounded bg-white mt-5'>
@@ -38,25 +60,29 @@ function BookPageForEdit() {
                 <Form>
                     <Form.Group>
                         <Form.Label>Book Title</Form.Label>
-                        <Form.Control type="text" name="bookTitle" value={book.bookTitle}></Form.Control>
+                        <Form.Control type="text" name="bookTitle" value={book.bookTitle} onChange={manageUpdate}></Form.Control>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Author Name</Form.Label>
-                        <Form.Control type="text" name="authorName" value={book.authorName}></Form.Control>
-                    </Form.Group><Form.Group>
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control type="Number" name="price" value={book.price}></Form.Control>
-                    </Form.Group><Form.Group>
-                        <Form.Label>ISBN No</Form.Label>
-                        <Form.Control type="text" name="isbnNo" value={book.isbnNo}></Form.Control>
-                    </Form.Group><Form.Group>
-                        <Form.Label>NOP</Form.Label>
-                        <Form.Control type="Number" name="nop" value={book.nop}></Form.Control>
-                    </Form.Group><Form.Group>
-                        <Form.Label>Publication</Form.Label>
-                        <Form.Control type="text" name="publication" value={book.publication}></Form.Control>
+                        <Form.Control type="text" name="authorName" value={book.authorName} onChange={manageUpdate}></Form.Control>
                     </Form.Group>
-                    
+                    <Form.Group>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="Number" name="price" value={book.price} onChange={manageUpdate}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>ISBN No</Form.Label>
+                        <Form.Control type="text" name="isbnNo" value={book.isbnNo} onChange={manageUpdate}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>NOP</Form.Label>
+                        <Form.Control type="Number" name="nop" value={book.nop} onChange={manageUpdate}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Publication</Form.Label>
+                        <Form.Control type="text" name="publication" value={book.publication} onChange={manageUpdate}></Form.Control>
+                    </Form.Group>
+                    <Button variant="warning" className='mt-3' onClick = {editBook}>Edit Book</Button>
                     <Button variant="danger" className='mt-3' onClick = {gotoBookList}>Cancel</Button>
                 </Form>
                 </Col>

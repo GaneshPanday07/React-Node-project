@@ -44,9 +44,23 @@ const getBookForEdit = async(req, res) => {
     res.status(400).send({data: err})
   }
 }
+
+const editBook = async(req, res) => {
+  try{
+    let id = req.params.id;
+    console.log(id);
+    let book = req.body;
+    console.log(book);
+    res.status(200).send({success: true})
+  } catch(err) {
+    console.log(err)
+    res.status(400).send({success: false})
+  }
+}
 module.exports = {
   addBook,
   getBooks,
   deleteBook,
-  getBookForEdit
+  getBookForEdit,
+  editBook,
 };
