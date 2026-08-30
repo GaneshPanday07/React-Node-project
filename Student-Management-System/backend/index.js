@@ -1,5 +1,9 @@
 const express = require('express')
+const connect = require('./connection')
+const Student = require('./Routes/StudentRoutes')
 const app = express()
+connect()
+app.use(Student)
 
 
 app.listen(3000, (err)=> {
