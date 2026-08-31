@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import {useEffect} from 'react'
 import { useState } from "react"
 import axios from "axios"
+const apiUrl = import.meta.env.VITE_API_URL
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 
 function BookPageForEdit() {
@@ -22,12 +23,13 @@ function BookPageForEdit() {
     }
     useEffect(() => {
         axios({
-            url: 'http://localhost:3000/book/for/edit/' + id,
+            //url: 'http://localhost:3000/book/for/edit/' + id,
+            url: apiUrl + '/book/for/edit/' + id,
             method: 'get'
         }).then((res) => {
             setBook(res.data.data)
         }).catch((err) => {
-            alert('err ')
+            alert('err')
         })
     },[])
     function manageUpdate(e) {
@@ -43,11 +45,13 @@ function BookPageForEdit() {
 
     function editBook() {
         axios({
-            url: 'http://localhost:3000/edit/book/' + id,
+            //url: 'http://localhost:3000/edit/book/' + id,
+            url: apiUrl + '/edit/book/' + id,
             method: 'put',
             data: book
         }).then((res)=> {
             alert('data has been update sucessfully...')
+            navigate('/books')
         }).catch((err)=> {
             alert(err)
         })
@@ -83,7 +87,7 @@ function BookPageForEdit() {
                         <Form.Control type="text" name="publication" value={book.publication} onChange={manageUpdate}></Form.Control>
                     </Form.Group>
                     <Button variant="warning" className='mt-3' onClick = {editBook}>Edit Book</Button>
-                    <Button variant="danger" className='mt-3' onClick = {gotoBookList}>Cancel</Button>
+                    <Button variant="danger" className='mt-3 ms-2' onClick = {gotoBookList}>Cancel</Button>
                 </Form>
                 </Col>
             </Row>

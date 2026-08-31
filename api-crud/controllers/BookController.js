@@ -13,8 +13,13 @@ const addBook = async(req, res) => {
 
 const getBooks = async (req, res) => {
   try {
-    let books = await Book.find({});
-    res.status(200).send({ data: books });
+    //let books = await Book.find({});
+    //console.log(books)
+    let totalBooks = await Book.countDocuments({})
+    console.log('Total Book = ', totalBooks);
+
+    let books = await Book.find({bookTitle: new RegExp(req.query.searchBook, "i") }).skip((req.query.pageNo - 1)*(req.query.booksPerPage)).limit(req.query.booksPerPage);
+    res.status(200).send({ data: books, totalBooks: totalBooks });
   } catch (err) {
     console.log(err);
     res.status(400).send({ message: err });
@@ -51,6 +56,8 @@ const editBook = async(req, res) => {
     console.log(id);
     let book = req.body;
     console.log(book);
+    await Book.updateOne({ _id: id}, req.body)
+    console.log("Book updated Sucessfully....")
     res.status(200).send({success: true})
   } catch(err) {
     console.log(err)
