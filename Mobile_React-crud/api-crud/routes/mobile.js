@@ -10,4 +10,12 @@ route.post('/add/mobile', (req, res)=> {
     MobileController.addMobile(req, res);
 })
 
+route.get('/mobiles', (req, res)=> {
+  MobileController.getMobiles(req, res)
+})
+
 module.exports = route
+
+
+
+
