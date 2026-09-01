@@ -2,11 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const connect = require('./connection')
 const book = require('./routes/book')
-const mobile = require('./routes/mobile')
 const app = express()
 app.use(cors())
 app.use(book)
-app.use(mobile)
 connect()
 
 

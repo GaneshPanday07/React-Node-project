@@ -12,20 +12,34 @@ function AddBook() {
     let [isbnNo, setIsbnNo] = useState('')
     let [nop, setNop] = useState(0)
     let [publication, setPublication] = useState('')
+    let [file, setFile] = useState('')
     function addBook() {
-        let data = {
-            bookTitle: bookTitle,
-            authorName: authorName,
-            price: price,
-            isbnNo: isbnNo,
-            nop: nop,
-            publication: publication
-        }
+        //let data = {
+          //  bookTitle: bookTitle,
+            //authorName: authorName,
+           // price: price,
+            //isbnNo: isbnNo,
+            //nop: nop,
+            //publication: publication
+        //}
+        let formData = new FormData()
+        formData.append('bookTitle', bookTitle)
+        formData.append('authorName', authorName)
+        formData.append('price', price)
+        formData.append('isbnNo', isbnNo)
+        formData.append('nop', nop)
+        formData.append('publication', publication)
+        formData.append('file', file)
+
+
         axios({
             //url: 'http://localhost:3000/add/book',
             url: apiUrl + '/add/book', 
             method: 'post',
-            data: data
+            data: formData,
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
         }).then((res)=> {
             alert(res.data.message)
             navigate('/books')
@@ -64,6 +78,10 @@ function AddBook() {
             <Form.Group>
                 <Form.Label>publication</Form.Label>
                 <Form.Control type="text" onChange={ (e)=> setPublication(e.target.value)}></Form.Control>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Select the  Book Image</Form.Label>
+                <Form.Control type="file" onChange={ (e)=> setFile(e.target.files[0])}></Form.Control>
             </Form.Group>
             <Button variant="success" className='mt-3' onClick = {addBook}>Add Book</Button>
             </Form>

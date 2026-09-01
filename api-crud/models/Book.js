@@ -18,6 +18,9 @@ const bookSchema = new Schema({
     },
     publication: {
         type: String
+    },
+    bookImage: {
+        type: String
     }
 
 

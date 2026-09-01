@@ -1,7 +1,18 @@
 const Book = require('../models/Book')
+const cloudinary = require('cloudinary').v2
 
 const addBook = async(req, res) => {
     try{
+      cloudinary.config({
+        cloud_name: "roi9vwn2",
+        api_key: "539176683459959",
+        api_secret: "JuStPibbD3qYB9GO_9ml1Qwb1gU",
+      });
+        const upload = await cloudinary.uploader.upload(req.file.path);
+        console.log(upload);
+        req.body.bookImage = upload.secure_url;
+        //console.log(req.body)
+        //console.log(req.file)
         let book = new Book(req.body)
         await book.save()
         console.log("Data Save Successfully.....")
