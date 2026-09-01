@@ -66,6 +66,7 @@ function BookList() {
                     <Table bordered>
                         <thead>
                             <tr>
+                            <th>Image</th>
                             <th>Book Title</th>
                             <th>Author Name</th>
                             <th>Price</th>
@@ -79,6 +80,7 @@ function BookList() {
                             {
                                 books.map((book) => 
                                     <tr>
+                                        <td><img src={book.bookImage} width="30px" height="30px"></img></td>
                                         <td>{book.bookTitle}</td>
                                         <td>{book.authorName}</td>
                                         <td>{book.price}</td>
