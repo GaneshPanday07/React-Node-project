@@ -19,7 +19,7 @@ function Sidebarmenu({children}) {
                                 </a>
                             </li> */}
                             <li className = 'nav-item text-white fs-4 my-1'>
-                                <a href='/books' className='nav-link text-white fs-5' aria-current="page">
+                                <a href='/mobiles' className='nav-link text-white fs-5' aria-current="page">
                                     <i className='bi bi-house'></i>
                                     <span className='ms-2'>Manage Mobile</span>
                                 </a>

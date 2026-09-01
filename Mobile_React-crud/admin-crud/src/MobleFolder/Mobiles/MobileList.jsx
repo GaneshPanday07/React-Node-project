@@ -3,14 +3,30 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { Container, Row,Col, Table, Button } from 'react-bootstrap'
 function MobileList(){
+    let [isDelete, setIsDelete] = useState(false)
+    let [mobiles, setMobiles] = useState([])
     let navigate = useNavigate()
     function gotoAddMobile(){
         navigate('/add/mobile')
     }
-    let [mobiles, setMobiles] = useState([])
+    function handleDelete(id) {
+        axios({
+            url: 'http://localhost:3000/delete/mobile/' + id,
+            method: 'delete',
+        })
+        .then((res) => {
+            alert("Data has been delete Sucessfully...");
+            setIsDelete(true)
+        })
+        .catch((err) => {
+            alert("err")
+        })
+    }
+    function handleUpdate(id) {
+        navigate('/edit/mobile')
+    }
     useEffect(() => {
         axios({
-
             url: 'http://localhost:3000/mobiles',
             method: 'get'
         }).then((res) => {
@@ -19,7 +35,7 @@ function MobileList(){
         .catch((err) => {
             alert(err.message)
         })
-    },[])
+    },[isDelete])
     return(
         <Container>
             <Row>
@@ -47,8 +63,8 @@ function MobileList(){
                                         <td>{mobile.ram}</td>
                                         <td>{mobile.rom}</td>
                                         <td>
-                                            <i class="bi bi-trash text-danger"></i>
-                                            <i class="bi bi-pencil text-info ms-4"></i>
+                                            <i class="bi bi-trash text-danger" onClick={() => handleDelete(mobile._id)}></i>
+                                            <i class="bi bi-pencil text-info ms-4" onClick={() => handleUpdate(mobile._id)}></i>
                                         </td>
                                     </tr>
                                     
