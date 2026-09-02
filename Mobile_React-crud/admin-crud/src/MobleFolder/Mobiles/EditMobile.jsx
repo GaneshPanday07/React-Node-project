@@ -1,5 +1,8 @@
+import { useState, useEffect, useParams } from "react"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import axios from "axios"
 function EditMobile() {
+    let params = useParams()
     return(
         <Container className='align-items-center justify-content-center min-vh-100'>
             <Row className='w-100 justify-content-center'>

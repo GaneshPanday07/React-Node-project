@@ -27,8 +27,6 @@ const getBooks = async (req, res) => {
     //let books = await Book.find({});
     //console.log(books)
     let totalBooks = await Book.countDocuments({})
-    console.log('Total Book = ', totalBooks);
-
     let books = await Book.find({bookTitle: new RegExp(req.query.searchBook, "i") }).skip((req.query.pageNo - 1)*(req.query.booksPerPage)).limit(req.query.booksPerPage);
     res.status(200).send({ data: books, totalBooks: totalBooks });
   } catch (err) {
@@ -51,7 +49,6 @@ const deleteBook = async(req, res) => {
 const getBookForEdit = async(req, res) => {
   try{
     let id = req.params.id;
-    console.log(id);
     let book = await Book.findOne({_id: id});
     console.log(book)
     res.status(200).send({data: book})

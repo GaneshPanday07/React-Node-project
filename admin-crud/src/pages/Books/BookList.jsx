@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import { Container, Row, Col, Table, Button, Form, Pagination } from 'react-bootstrap'
+import { FaTrash, FaEdit, FaEye  } from "react-icons/fa"
 import axios from "axios"
 const apiUrl = import.meta.env.VITE_API_URL
 function BookList() {
@@ -87,14 +88,33 @@ function BookList() {
                                         <td>{book.isbnNo}</td>
                                         <td>{book.nop}</td>
                                         <td>{book.publication}</td>
-                                        {/*<td>
-                                            <Button variant="danger" Size="sm" onClick={() => handleDelete(book._id)}>Delete</Button>
-                                            <Button variant="warning" Size="sm" className="ms-1" onClick={() => handleUpdate(book._id)}>Edit</Button>
-                                        </td>*/}
                                         <td>
-                                            <i class="bi bi-trash text-danger" onClick={() => handleDelete(book._id)}></i>
-                                            <i class="bi bi-pencil text-info ms-5" onClick={() => handleUpdate(book._id)}></i>
+                                            <Button 
+                                                variant="danger" 
+                                                Size="sm" 
+                                                onClick={() => handleDelete(book._id)}>
+                                                <FaTrash></FaTrash>
+
+                                            </Button>
+                                            <Button 
+                                                variant="warning" 
+                                                Size="sm" 
+                                                className="ms-2" 
+                                                onClick={() => handleUpdate(book._id)}>
+                                            <FaEdit></FaEdit>
+
+                                            </Button>
+                                            <Button
+                                                Size="sm" 
+                                                className="ms-2">
+                                                <FaEye></FaEye>
+
+                                            </Button>
                                         </td>
+                                        {/*<td>
+                                            <i variant="danger" class="bi bi-trash text-danger" onClick={() => handleDelete(book._id)}></i>
+                                            <i class="bi bi-pencil text-info ms-5" onClick={() => handleUpdate(book._id)}></i>
+                                        </td>*/}
                                         
                                     </tr>
                                 )
