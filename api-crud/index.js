@@ -2,10 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const connect = require('./connection')
 const book = require('./routes/book')
+const createAdmin = require('./createAdmin')
 const app = express()
 app.use(cors())
 app.use(book)
 connect()
+createAdmin();
 
 
 
