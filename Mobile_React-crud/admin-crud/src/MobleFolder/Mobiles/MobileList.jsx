@@ -1,5 +1,6 @@
 import { useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom"
+import {FaTrash, FaEye, FaEdit} from 'react-icons/fa'
 import axios from "axios"
 import { Container, Row,Col, Table, Button } from 'react-bootstrap'
 function MobileList(){
@@ -23,7 +24,7 @@ function MobileList(){
         })
     }
     function handleUpdate(id) {
-        navigate('/edit/mobile')
+        navigate('/edit/mobile' + id)
     }
     useEffect(() => {
         axios({
@@ -63,9 +64,28 @@ function MobileList(){
                                         <td>{mobile.ram}</td>
                                         <td>{mobile.rom}</td>
                                         <td>
+                                            <Button 
+                                            variant="danger"
+                                            onClick={() => handleDelete(mobile._id)}
+                                            >
+                                            <FaTrash></FaTrash>
+                                            </Button>
+                                            <Button
+                                            variant="warning ms-2"
+                                            onClick={() => handleUpdate(mobile._id)}
+                                            >
+                                            <FaEdit></FaEdit>
+                                            </Button>
+                                            <Button
+                                            variant="ms-2"
+                                            >
+                                            <FaEye></FaEye>
+                                            </Button>
+                                        </td>
+                                        {/*<td>
                                             <i class="bi bi-trash text-danger" onClick={() => handleDelete(mobile._id)}></i>
                                             <i class="bi bi-pencil text-info ms-4" onClick={() => handleUpdate(mobile._id)}></i>
-                                        </td>
+                                        </td>*/}
                                     </tr>
                                     
                                 )

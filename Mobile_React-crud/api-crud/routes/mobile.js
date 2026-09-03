@@ -18,8 +18,8 @@ route.delete('/delete/mobile/:id', (req, res)=> {
     MobileController.deleteMobile(req, res)
 })
 
-route.get('/edit/mobile/:id', (req, res)=> {
-    MobileController.editMobile(req, res)
+route.get('/edit/for/mobile/:id', (req, res)=> {
+    MobileController.editForMobile(req, res)
 })
 
 module.exports = route

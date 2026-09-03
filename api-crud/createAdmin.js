@@ -5,7 +5,7 @@ const createAdmin = async() => {
     try{
         let user = await User.findOne({email: 'ganeshp782791@gmail.com' })
         if(user){
-            console.Console.log('user updated successfully...')
+            console.log('user updated successfully...')
         }else{
             user = new User();
             user.firstName= 'Ganesh';
