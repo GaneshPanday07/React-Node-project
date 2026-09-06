@@ -24,7 +24,7 @@ function MobileList(){
         })
     }
     function handleUpdate(id) {
-        navigate('/edit/mobile' + id)
+        navigate('/edit/mobile/' + id)
     }
     useEffect(() => {
         axios({

@@ -12,7 +12,7 @@ function App() {
                 <Route path='/' element={<Login></Login>}></Route>
                 <Route path='/add/mobile' element={<AddMobile></AddMobile>}></Route>
                 <Route path='/mobiles' element={<MobileList></MobileList>}></Route>
-                <Route path='/edit/mobile' element={<EditMobile></EditMobile>}></Route>
+                <Route path='/edit/mobile/:id' element={<EditMobile></EditMobile>}></Route>
             </Routes>
             </Sidebarmenu>
         </BrowserRouter>
