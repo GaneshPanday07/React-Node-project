@@ -25,7 +25,7 @@ function EditMobile() {
         .catch((err) => {
             alert("err...")
         })
-    }, [id])
+    }, [])
     return(
         <Container className='align-items-center justify-content-center min-vh-100'>
             <Row className='w-100 justify-content-center'>

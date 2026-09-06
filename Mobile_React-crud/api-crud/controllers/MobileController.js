@@ -35,7 +35,7 @@ const editForMobile = async(req, res) => {
   try{
     let id = req.params.id;
     let mobile = await Mobile.findOne({_id: id})
-    res.state(200).send({data: mobile})
+    res.status(200).send({data: mobile})
   } catch(err) {
     //console.log("err");
     res.status(400).send({success: false})
