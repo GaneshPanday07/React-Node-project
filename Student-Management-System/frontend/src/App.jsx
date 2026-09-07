@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Home'
-import AddStudent from './AddStudent'
-import StudentList from './StudentList'
+import Home from './pages/Home'
+import AddStudent from './pages/AddStudent'
+import StudentList from './pages/StudentList'
 function App() {
     return(
        <BrowserRouter>
