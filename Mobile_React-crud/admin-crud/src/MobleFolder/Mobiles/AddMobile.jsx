@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { Button, Container, Row, Col, Form } from "react-bootstrap"
+const apiUrl = import.meta.env.VITE_API_URL
 import axios from "axios"
 function AddMobile() {
     let [modelName, setModelName] = useState('')
@@ -19,7 +20,8 @@ function AddMobile() {
             rom: rom
         }
         axios({
-            url: 'http://localhost:3000/add/mobile/',
+            //url: 'http://localhost:3000/add/mobile/',
+            url: apiUrl + '/add/mobile',
             method: 'post',
             data: data
         }).then((res)=> {

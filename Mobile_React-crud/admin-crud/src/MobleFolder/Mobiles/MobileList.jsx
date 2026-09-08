@@ -2,6 +2,7 @@ import { useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom"
 import {FaTrash, FaEye, FaEdit} from 'react-icons/fa'
 import axios from "axios"
+const apiUrl = import.meta.env.VITE_API_URL
 import { Container, Row,Col, Table, Button } from 'react-bootstrap'
 function MobileList(){
     let [isDelete, setIsDelete] = useState(false)
@@ -12,7 +13,8 @@ function MobileList(){
     }
     function handleDelete(id) {
         axios({
-            url: 'http://localhost:3000/delete/mobile/' + id,
+            //url: 'http://localhost:3000/delete/mobile/' + id,
+            url: apiUrl + '/delete/mobile/' + id,
             method: 'delete',
         })
         .then((res) => {
@@ -26,9 +28,11 @@ function MobileList(){
     function handleUpdate(id) {
         navigate('/edit/mobile/' + id)
     }
+
     useEffect(() => {
         axios({
-            url: 'http://localhost:3000/mobiles',
+            //url: 'http://localhost:3000/mobiles',
+            url: apiUrl + '/mobiles',
             method: 'get'
         }).then((res) => {
             setMobiles(res.data.data)

@@ -6,6 +6,7 @@ const apiUrl = import.meta.env.VITE_API_URL
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 
 function BookPageForEdit() {
+    let navigate = useNavigate();
     let params = useParams()
     let id = params.id;
     let [book, setBook] = useState({
@@ -17,10 +18,7 @@ function BookPageForEdit() {
         publication: ''
         
     })
-    let navigate = useNavigate();
-    function gotoBookList() {
-        navigate('/books')
-    }
+
     useEffect(() => {
         axios({
             //url: 'http://localhost:3000/book/for/edit/' + id,
@@ -87,7 +85,7 @@ function BookPageForEdit() {
                         <Form.Control type="text" name="publication" value={book.publication} onChange={manageUpdate}></Form.Control>
                     </Form.Group>
                     <Button variant="warning" className='mt-3' onClick = {editBook}>Edit Book</Button>
-                    <Button variant="danger" className='mt-3 ms-2' onClick = {gotoBookList}>Cancel</Button>
+                    <Button variant="danger" className='mt-3 ms-2' onClick = {() => '/books'}>Cancel</Button>
                 </Form>
                 </Col>
             </Row>
