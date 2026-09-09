@@ -32,11 +32,22 @@ const deleteMobile = async(req, res) => {
 const editForMobile = async(req, res) => {
   try{
     let id = req.params.id;
-    console.log("hlo")
     let mobile = await Mobile.findOne({_id: id})
     res.status(200).send({data: mobile})
   } catch(err) {
     //console.log("err");
+    res.status(400).send({success: false})
+  }
+}
+
+const editMobile = async(req, res) => {
+  try{
+    let id = req.params.id;
+    let mobile = req.body
+    console.log(mobile);
+    await Mobile.updateOne({_id: id}, req.body)
+    res.status(200).send({success: true})
+  } catch{
     res.status(400).send({success: false})
   }
 }
@@ -45,4 +56,5 @@ module.exports = {
   getMobiles,
   deleteMobile,
   editForMobile,
+  editMobile,
 };

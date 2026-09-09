@@ -41,7 +41,17 @@ function EditMobile() {
     }
 
     function EditMobile() {
-        navigate('/mobiles')
+        axios({
+            url: apiUrl + '/edit/mobile/' + id,
+            method: 'PUT',
+            data: mobile
+        }).then((res)=> {
+            alert("data update Successfully....")
+            navigate('/mobiles')
+        })
+        .catch((err) => {
+            alert("data has Not update.")
+        })
     }
 
     

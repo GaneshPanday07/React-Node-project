@@ -22,6 +22,10 @@ route.get('/edit/for/mobile/:id', (req, res)=> {
     MobileController.editForMobile(req, res)
 })
 
+route.put('/edit/mobile/:id', (req, res)=> {
+    MobileController.editMobile(req, res)
+})
+
 module.exports = route
 
 

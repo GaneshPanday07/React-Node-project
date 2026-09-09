@@ -61,7 +61,6 @@ const getBookForEdit = async(req, res) => {
 const editBook = async(req, res) => {
   try{
     let id = req.params.id;
-    console.log(id);
     let book = req.body;
     console.log(book);
     await Book.updateOne({ _id: id}, req.body)
