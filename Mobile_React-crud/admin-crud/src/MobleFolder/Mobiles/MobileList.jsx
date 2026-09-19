@@ -67,15 +67,14 @@ function MobileList(){
                                         <td>{mobile.price}</td>
                                         <td>{mobile.ram}</td>
                                         <td>{mobile.rom}</td>
-                                        <td>
+                                        {/*<td>
                                             <Button 
-                                            variant="danger"
                                             onClick={() => handleDelete(mobile._id)}
                                             >
                                             <FaTrash></FaTrash>
                                             </Button>
                                             <Button
-                                            variant="warning ms-2"
+                                            variant="ms-2"
                                             onClick={() => handleUpdate(mobile._id)}
                                             >
                                             <FaEdit></FaEdit>
@@ -85,11 +84,12 @@ function MobileList(){
                                             >
                                             <FaEye></FaEye>
                                             </Button>
-                                        </td>
-                                        {/*<td>
-                                            <i class="bi bi-trash text-danger" onClick={() => handleDelete(mobile._id)}></i>
-                                            <i class="bi bi-pencil text-info ms-4" onClick={() => handleUpdate(mobile._id)}></i>
                                         </td>*/}
+                                        <td>
+                                            <i class="bi bi-pencil text-info ms-2" onClick={() => handleUpdate(mobile._id)}></i>
+                                            <i class="bi bi-trash text-danger ms-4" onClick={() => handleDelete(mobile._id)}></i>
+                                            
+                                        </td>
                                     </tr>
                                     
                                 )
