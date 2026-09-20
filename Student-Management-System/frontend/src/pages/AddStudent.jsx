@@ -8,9 +8,6 @@ function AddStudent(){
     let [studentName, setStudentName] = useState('');
     let[course, setCourse] = useState('');
     let[mobileNo, setMobileNo] = useState(0);
-    function gotoHome(){
-        navigate('/')
-    }
 
     function gotoStudentsList(){
         navigate('/Student/List')
@@ -20,9 +17,10 @@ function AddStudent(){
         <Container>
             <Row>
                 <Col>
-                    <h1>Add Student</h1>
+                    <Button className="mt-5 ms-2" style={{float:'right' }} onClick={()=> navigate('/')}>Back To Home Page</Button>
+                    <h1 class ="text-center text-danger mt-5 ms-3">Add Student</h1>
                     <Form>
-                        <Form.Group className="mt-3">
+                        <Form.Group className="mt-5">
                             <Form.Label>Roll No</Form.Label>
                             <Form.Control type="text" value={rollNo} onChange={(e) => setRollNo(e.target.value) }></Form.Control>
                         </Form.Group>
@@ -40,7 +38,6 @@ function AddStudent(){
                         </Form.Group>
                     
                         <Button className="mt-5">Add Student</Button>
-                        <Button className="mt-5 ms-2" onClick={gotoHome}>Back To Home Page</Button>
                         <Button className="mt-5 ms-2" onClick={gotoStudentsList}>Student List</Button>
                     </Form>
                 </Col>
