@@ -16,7 +16,7 @@ function AddStudent(){
        
         <Container>
             <Row>
-                <Col>
+                <Col>   
                     <Button className="mt-5 ms-2" style={{float:'right' }} onClick={()=> navigate('/')}>Back To Home Page</Button>
                     <h1 class ="text-center text-danger mt-5 ms-3">Add Student</h1>
                     <Form>
