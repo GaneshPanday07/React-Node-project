@@ -12,6 +12,7 @@ function StudentList(){
                                 <th>Student Name</th>
                                 <th>Course</th>
                                 <th>MobileNo</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

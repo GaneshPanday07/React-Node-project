@@ -4,14 +4,12 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 function AddStudent(){
     let navigate = useNavigate();
+    
     let [rollNo, setRollNo] = useState('');
     let [studentName, setStudentName] = useState('');
     let[course, setCourse] = useState('');
     let[mobileNo, setMobileNo] = useState(0);
 
-    function gotoStudentsList(){
-        navigate('/Student/List')
-    }
     return(
        
         <Container>
@@ -38,7 +36,7 @@ function AddStudent(){
                         </Form.Group>
                     
                         <Button className="mt-5">Add Student</Button>
-                        <Button className="mt-5 ms-2" onClick={gotoStudentsList}>Student List</Button>
+                        <Button className="mt-5 ms-2" onClick={() => navigate('/Student/List')}>Student List</Button>
                     </Form>
                 </Col>
             </Row>
