@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom' 
-import Login from './MobleFolder/Mobiles/Login'
-import AddMobile from './MobleFolder/Mobiles/AddMobile'
 import Sidebarmenu from './Sidebarmenu'
+//login 
+import Login from './MobleFolder/Mobiles/Login'
+
+//mobile
+import AddMobile from './MobleFolder/Mobiles/AddMobile'
 import MobileList from './MobleFolder/Mobiles/MobileList'
 import EditMobile from './MobleFolder/Mobiles/EditMobile'
 function App() {
@@ -9,7 +12,9 @@ function App() {
         <BrowserRouter>
             <Sidebarmenu>
             <Routes>
+                {/** login page */}
                 <Route path='/' element={<Login></Login>}></Route>
+                {/**mobile pages*/}
                 <Route path='/add/mobile' element={<AddMobile></AddMobile>}></Route>
                 <Route path='/mobiles' element={<MobileList></MobileList>}></Route>
                 <Route path='/edit/mobile/:id' element={<EditMobile></EditMobile>}></Route>

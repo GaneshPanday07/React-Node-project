@@ -7,27 +7,15 @@ function Sidebarmenu({children}) {
                 <div className='bg-dark min-vh-100 col'>
                     <div>
                         <a className='text-decoration-none text-white d-flex align-itemcenter ms-3 mt-2'>
-                            <i className=' fs-4 bi bi-speedometer'></i>
+                            <i className=' fs-4 bi bi-phone'></i>
                             <span className='ms-1 fs-4'>Mobile Store</span>
                         </a>
                         <hr className='text-secondry' />
                         <ul className='nav nav-pills flex-column'>
-                            {/* <li className = 'nav-item text-white fs-4 my-1'>
-                                <a href to='/' className='nav-link text-white fs-5' aria-current="page">
-                                    <i className='bi bi-speedometer2'></i>
-                                    <span className='ms-2'>Dashborad</span>
-                                </a>
-                            </li> */}
                             <li className = 'nav-item text-white fs-4 my-1'>
                                 <a href='/mobiles' className='nav-link text-white fs-5' aria-current="page">
-                                    <i className='bi bi-house'></i>
+                                    <i className='bi bi-phone-fill'></i>
                                     <span className='ms-2'>Manage Mobile</span>
-                                </a>
-                            </li>
-                            <li className = 'nav-item text-white fs-4 my-1'>
-                                <a href='/dashboard' className='nav-link text-white fs-5' aria-current="page">
-                                    <i className='bi bi-table'></i>
-                                    <span className='ms-2'>Dashboard</span>
                                 </a>
                             </li>
                         </ul>

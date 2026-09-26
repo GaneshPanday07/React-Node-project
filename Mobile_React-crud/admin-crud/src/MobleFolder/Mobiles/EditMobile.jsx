@@ -58,7 +58,7 @@ function EditMobile() {
     return(
         <Container className='align-items-center justify-content-center min-vh-100'>
             <Row className='w-100 justify-content-center'>
-                <Col xs={12} md={6} lg={6} className='border p-4 rounded bg-white mt-5'>
+                <Col xs={12} md={6} lg={5} className='border p-4 rounded bg-white mt-5'>
                 <h2 className='text-center text-danger'>Edit Mobile</h2>
                     <Form>
                         <Form.Group>
@@ -81,8 +81,8 @@ function EditMobile() {
                             <Form.Label>ROM</Form.Label>
                             <Form.Control type="text" name="rom" value={mobile.rom} onChange={manageUpdate}></Form.Control>
                         </Form.Group>
-                        <Button variant="primary" className="mt-3" onClick={() => navigate('/mobiles')}>Cancel</Button>
-                        <Button variant="warning" className="mt-3 ms-2" onClick={EditMobile}>Edit Mobile</Button>
+                        <Button variant="warning" className="mt-3 " onClick={EditMobile}>Edit Mobile</Button>
+                        <Button variant="primary" className="mt-3 ms-2" onClick={() => navigate('/mobiles')}>Cancel</Button>
                     </Form>
                 </Col>
             </Row>

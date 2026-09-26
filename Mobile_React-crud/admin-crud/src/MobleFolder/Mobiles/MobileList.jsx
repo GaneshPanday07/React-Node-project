@@ -1,16 +1,15 @@
 import { useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom"
-import {FaTrash, FaEye, FaEdit} from 'react-icons/fa'
+import { Container, Row,Col, Table, Button } from 'react-bootstrap'
 import axios from "axios"
 const apiUrl = import.meta.env.VITE_API_URL
-import { Container, Row,Col, Table, Button } from 'react-bootstrap'
+
 function MobileList(){
     let [isDelete, setIsDelete] = useState(false)
     let [mobiles, setMobiles] = useState([])
+
     let navigate = useNavigate()
-    function gotoAddMobile(){
-        navigate('/add/mobile')
-    }
+
     function handleDelete(id) {
         axios({
             //url: 'http://localhost:3000/delete/mobile/' + id,
@@ -45,9 +44,9 @@ function MobileList(){
         <Container>
             <Row>
                 <Col>
-                <Button className="mt-5" variant="success" style={{float:'right' }} onClick={gotoAddMobile}>Add Mobile</Button>
+                <Button className="mt-5" variant="success" style={{float:'right' }} onClick={() => navigate('/add/mobile')}>Add Mobile +</Button>
                 <h2 class ="text-center text-danger mt-5">Mobiles List</h2>
-                    <Table bordered>
+                    <Table >
                         <thead>
                             <tr>
                                 <th>modelName</th>
@@ -67,24 +66,6 @@ function MobileList(){
                                         <td>{mobile.price}</td>
                                         <td>{mobile.ram}</td>
                                         <td>{mobile.rom}</td>
-                                        {/*<td>
-                                            <Button 
-                                            onClick={() => handleDelete(mobile._id)}
-                                            >
-                                            <FaTrash></FaTrash>
-                                            </Button>
-                                            <Button
-                                            variant="ms-2"
-                                            onClick={() => handleUpdate(mobile._id)}
-                                            >
-                                            <FaEdit></FaEdit>
-                                            </Button>
-                                            <Button
-                                            variant="ms-2"
-                                            >
-                                            <FaEye></FaEye>
-                                            </Button>
-                                        </td>*/}
                                         <td>
                                             <i class="bi bi-pencil text-info ms-2" onClick={() => handleUpdate(mobile._id)}></i>
                                             <i class="bi bi-trash text-danger ms-4" onClick={() => handleDelete(mobile._id)}></i>
