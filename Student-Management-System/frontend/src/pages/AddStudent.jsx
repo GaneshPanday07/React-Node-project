@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
+
 function AddStudent(){
     let navigate = useNavigate();
     

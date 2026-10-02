@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
+
 function Home(){
     let navigate = useNavigate();
     
@@ -15,10 +16,7 @@ function Home(){
                 </diV>
                 </Col>
             </Row>
-        </Container>
-        
-        
-        
+        </Container>   
     )
 }
 export default Home
