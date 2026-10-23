@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./MobilePages/LoginPage";
 import MobileList from "./MobilePages/MobileList";
-import AddMobile from "./MobilePages/AddMobile"
+import AddMobile from "./MobilePages/AddMobile";
 
 const App = () => {
   return (
@@ -13,7 +13,9 @@ const App = () => {
         <Route path="/mobilelist" element={<MobileList />}>
           Mobile List
         </Route>
-        <Route path="/addmobile" element={<AddMobile />}></Route>
+        <Route path="/addmobile" element={<AddMobile />}>
+          Add Mobiles
+        </Route>
       </Routes>
     </BrowserRouter>
   );
