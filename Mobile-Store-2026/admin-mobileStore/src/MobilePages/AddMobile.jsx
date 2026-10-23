@@ -1,9 +1,9 @@
-import { Container } from "react-bootstrap"
+import { Container, Row, Col, Form } from "react-bootstrap"
 
 const AddMobile =() => {
     return (
         <>
-            <Container>
+            <Container >
                 <Row className="text-center">
                     <h1>Add Mobile</h1>
                     <Col>
