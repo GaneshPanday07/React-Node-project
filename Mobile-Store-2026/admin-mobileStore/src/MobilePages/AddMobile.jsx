@@ -31,23 +31,23 @@ const AddMobile = () => {
             <Form className="mt-4">
               <Form.Group>
                 <Form.Label>Mobile Model </Form.Label>
-                <Form.Control type="text" ></Form.Control>
+                <Form.Control type="text" value={mobileModel} onClick={(e)=> setMobileModel(e.target.value)} placeholder="Enter Mobile Model"></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Brand Name </Form.Label>
-                <Form.Control type="text"></Form.Control>
+                <Form.Control type="text" value={brandName} onClick={(e) => setBrandName(e.target.value)}></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Price </Form.Label>
-                <Form.Control type="text"></Form.Control>
+                <Form.Control type="text" value={price} onclisk={(e) => setPrice(e.target.value)}> </Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>RAM </Form.Label>
-                <Form.Control type="text"></Form.Control>
+                <Form.Control type="text" value={ram} onClick={(e) => setRam(e.target.value)} ></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>ROM </Form.Label>
-                <Form.Control type="text"></Form.Control>
+                <Form.Control type="text" value="Rom" ></Form.Control>
               </Form.Group>
             </Form>
           </Col>
