@@ -13,8 +13,14 @@ const AddMobile = () => {
     let [rom, setRom] = useState('')
 
     useEffect(()=> {
+      let data = {
+        mobileBrand: mobileBrand,
+        mobileModel: mobileModel,
+        price: price,
+        ram: ram,
+        rom: rom
+      };
       axios(()=> {
-
       })
     },[])
   return (
@@ -34,8 +40,8 @@ const AddMobile = () => {
                 <Form.Control type="text" value={mobileModel} onClick={(e)=> setMobileModel(e.target.value)} placeholder="Enter Mobile Model"></Form.Control>
               </Form.Group>
               <Form.Group>
-                <Form.Label>Brand Name </Form.Label>
-                <Form.Control type="text" value={brandName} onClick={(e) => setBrandName(e.target.value)}></Form.Control>
+                <Form.Label>MobileBrand </Form.Label>
+                <Form.Control type="text" value={mobileBrand} onClick={(e) => setMobileBrand(e.target.value)}></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Price </Form.Label>
@@ -47,7 +53,7 @@ const AddMobile = () => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>ROM </Form.Label>
-                <Form.Control type="text" value="Rom" ></Form.Control>
+                <Form.Control type="text" value={ rom } onClick={(e) => setRom(e.target.value)}></Form.Control>
               </Form.Group>
             </Form>
           </Col>
