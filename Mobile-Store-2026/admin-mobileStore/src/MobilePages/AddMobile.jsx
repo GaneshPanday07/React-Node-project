@@ -1,28 +1,30 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"
-import {useState, useEffect } from "react"
-import axios from "axios"
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const AddMobile = () => {
-    let navigate = useNavigate();
-    let [mobileBrand, setMobileBrand] = useState('')
-    let [mobileModel, setMobileModel] = useState('')
-    let [price, setPrice] = useState('')
-    let [ram, setRam] = useState('')
-    let [rom, setRom] = useState('')
+  let navigate = useNavigate();
+  let [mobileBrand, setMobileBrand] = useState("");
+  let [mobileModel, setMobileModel] = useState("");
+  let [price, setPrice] = useState("");
+  let [ram, setRam] = useState("");
+  let [rom, setRom] = useState("");
 
-    useEffect(()=> {
-      let data = {
-        mobileBrand: mobileBrand,
-        mobileModel: mobileModel,
-        price: price,
-        ram: ram,
-        rom: rom
-      };
-      axios(()=> {
-      })
-    },[])
+  const addMobile = async (e) => {
+    e.preventDefault();
+
+    const mobileData = {
+      mobileBrand,
+      mobileModel,
+      price,
+      ram,
+      rom,
+    };
+
+    console.log(mobileData);
+  };
+
   return (
     <>
       <Container className="align-items-center justify-content-center min-vh-100">
@@ -37,31 +39,53 @@ const AddMobile = () => {
             <Form className="mt-4">
               <Form.Group>
                 <Form.Label>Mobile Model </Form.Label>
-                <Form.Control type="text" value={mobileModel} onClick={(e)=> setMobileModel(e.target.value)} placeholder="Enter Mobile Model"></Form.Control>
+                <Form.Control
+                  type="text"
+                  value={mobileModel}
+                  onChange={(e) => setMobileModel(e.target.value)}
+                  placeholder="Enter Mobile Model"
+                ></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>MobileBrand </Form.Label>
-                <Form.Control type="text" value={mobileBrand} onClick={(e) => setMobileBrand(e.target.value)}></Form.Control>
+                <Form.Control
+                  type="text"
+                  value={mobileBrand}
+                  onChange={(e) => setMobileBrand(e.target.value)}
+                ></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>Price </Form.Label>
-                <Form.Control type="text" value={price} onclisk={(e) => setPrice(e.target.value)}> </Form.Control>
+                <Form.Control
+                  type="text"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                >
+                </Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>RAM </Form.Label>
-                <Form.Control type="text" value={ram} onClick={(e) => setRam(e.target.value)} ></Form.Control>
+                <Form.Control
+                  type="text"
+                  value={ram}
+                  onChange={(e) => setRam(e.target.value)}
+                ></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>ROM </Form.Label>
-                <Form.Control type="text" value={ rom } onClick={(e) => setRom(e.target.value)}></Form.Control>
+                <Form.Control
+                  type="text"
+                  value={rom}
+                  onChange={(e) => setRom(e.target.value)}
+                ></Form.Control>
               </Form.Group>
             </Form>
           </Col>
           <div className="mt-3">
             <Button variant="secondary" onClick={() => navigate("/")}>
-              Back 
+              Back
             </Button>
-            <Button className="ms-2" variant="success" onClick={() => navigate("/")}>
+            <Button className="ms-2" variant="success" onClick={addMobile}>
               Add Mobile
             </Button>
           </div>
