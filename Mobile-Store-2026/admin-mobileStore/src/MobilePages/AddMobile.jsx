@@ -20,7 +20,16 @@ const AddMobile = () => {
       price,
       ram,
       rom,
-    };
+    }
+    await axios({
+      Url: "http://localhost:3000/add/mobile",
+      method: "post",
+      data: mobileData,
+    }).then((res) => {
+      alert("ok")
+    }).catch((err) => {
+      alert('error')
+    })
 
     console.log(mobileData);
   };
