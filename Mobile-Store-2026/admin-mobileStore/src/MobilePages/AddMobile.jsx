@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios"
 
 const AddMobile = () => {
   let navigate = useNavigate();
@@ -22,7 +23,7 @@ const AddMobile = () => {
       rom,
     }
     await axios({
-      Url: "http://localhost:3000/add/mobile",
+      url: "http://localhost:3000/add/mobile",
       method: "post",
       data: mobileData,
     }).then((res) => {
@@ -66,7 +67,7 @@ const AddMobile = () => {
               <Form.Group>
                 <Form.Label>Price </Form.Label>
                 <Form.Control
-                  type="text"
+                  type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 >
@@ -91,7 +92,7 @@ const AddMobile = () => {
             </Form>
           </Col>
           <div className="mt-3">
-            <Button variant="secondary" onClick={() => navigate("/")}>
+            <Button variant="secondary" onSumit={() => navigate("/")}>
               Back
             </Button>
             <Button className="ms-2" variant="success" onClick={addMobile}>
