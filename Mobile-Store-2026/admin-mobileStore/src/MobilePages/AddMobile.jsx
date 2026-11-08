@@ -46,7 +46,7 @@ const AddMobile = () => {
             className="border p-4 rounded bg-white mt-5"
           >
             <h1 className="text-danger">Add Mobile</h1>
-            <Form className="mt-4">
+            <Form className="mt-4" onSubmit={addMobile}>
               <Form.Group>
                 <Form.Label>Mobile Model </Form.Label>
                 <Form.Control
@@ -70,8 +70,7 @@ const AddMobile = () => {
                   type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
-                >
-                </Form.Control>
+                ></Form.Control>
               </Form.Group>
               <Form.Group>
                 <Form.Label>RAM </Form.Label>
@@ -89,16 +88,25 @@ const AddMobile = () => {
                   onChange={(e) => setRom(e.target.value)}
                 ></Form.Control>
               </Form.Group>
+
+              <Button
+                className="mt-3"
+                type="button"
+                variant="secondary"
+                onClick={() => navigate("/")}
+              >
+                Back
+              </Button>
+              <Button
+                type="submit"
+                className="ms-2 mt-3"
+                variant="success"
+                onsubmit={addMobile}
+              >
+                Add Mobile
+              </Button>
             </Form>
           </Col>
-          <div className="mt-3">
-            <Button variant="secondary" onSumit={() => navigate("/")}>
-              Back
-            </Button>
-            <Button className="ms-2" variant="success" onClick={addMobile}>
-              Add Mobile
-            </Button>
-          </div>
         </Row>
       </Container>
     </>
