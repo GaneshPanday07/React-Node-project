@@ -10,7 +10,7 @@ const AddMobile = () => {
   let [mobileModel, setMobileModel] = useState("");
   let [price, setPrice] = useState("");
   let [ram, setRam] = useState("");
-  let [rom, setRom] = useState("");
+  let [rom, setRom] = useState("");    
 
   const addMobile = async (e) => {
     e.preventDefault();
