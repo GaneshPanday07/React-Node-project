@@ -1,18 +1,24 @@
-require('dotenv').config
-const express = require("express")
-const connect = require('./config/db')
-const mobile = require('./Routers/MobileRouters')
-const app = express()
-connect()
-app.use(mobile)
+require("dotenv").config();
 
+const express = require("express");
+const connect = require("./config/db");
+const mobile = require("./Routers/MobileRouters");
 
-const port = 3000 || process.env.PORT
+const app = express();
 
-app.listen(port, (err)=> {
-    if(err){
-        console.log("ERROR...")
-    } else {
-        console.log("Server is Running on 3000 port....")
-    }
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(mobile);
+
+connect();
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, (err) => {
+  if (err) {
+    console.log("ERROR:", err);
+  } else {
+    console.log(`Server is running on port ${port}`);
+  }
+});

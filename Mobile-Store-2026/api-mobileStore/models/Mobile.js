@@ -1,11 +1,29 @@
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const mobileSchema = new Schema({
-  mobileName: { type: String },
-  brandName: { type: String },
-  Price: { type: String },
-  RAM: { type: String },
-  ROM: { type: String },
+  mobileBrand: {
+    type: String,
+    required: true
+  },
+  mobileModel: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  ram: {
+    type: String,
+    required: true
+  },
+  rom: {
+    type: String,
+    required: true
+  },
 });
+
 module.exports = mongoose.model("Mobile", mobileSchema);
+

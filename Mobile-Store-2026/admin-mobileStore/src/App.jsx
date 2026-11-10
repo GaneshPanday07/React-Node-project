@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LoginPage from "./MobilePages/LoginPage";
+import LoginPage from "./LoginPage";
 import MobileList from "./MobilePages/MobileList";
 import AddMobile from "./MobilePages/AddMobile";
 
