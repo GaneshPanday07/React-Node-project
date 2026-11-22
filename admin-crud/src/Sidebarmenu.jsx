@@ -7,7 +7,7 @@ function Sidebarmenu({children}) {
                 <div className='bg-dark min-vh-100 col'>
                     <div>
                         <a className='text-decoration-none text-white d-flex align-itemcenter ms-3 mt-2'>
-                            <i className=' fs-4 bi bi-book'></i>
+                            <i className=' fs-4 '></i>
                             <span className='ms-1 fs-4'>Book Store</span>
                         </a>
                         <hr className='text-secondry' />
